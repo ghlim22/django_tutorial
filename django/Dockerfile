@@ -3,9 +3,9 @@ FROM python:3
 
 EXPOSE 8000
 
-WORKDIR /app
+WORKDIR /project
 
-COPY ./app ./
+COPY ./project ./
 
 RUN <<EOF
 pip3 install --upgrade pip
