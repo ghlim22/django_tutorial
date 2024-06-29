@@ -19,7 +19,7 @@ def index(request: HttpRequest) -> HttpResponse:
 
         return HttpResponseRedirect(reverse('account:index'))
     test_list = TestProfile.objects.all()
-    return render(request, "account/base.html", context={'test_list': test_list})
+    return render(request, template_name="account/base.html", context={'test_list': test_list})
 
 class AccountCreateView(CreateView):
     model = User
