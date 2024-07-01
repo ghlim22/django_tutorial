@@ -6,20 +6,33 @@
             <p>
                 {{ target_user.date_joined }}
             </p>
-            <h2 style="font-family: 'MaruBuri-Light'">
-                {{ target_user.username }}
-            </h2>
 
-            {% if target_user == user %}
-                <a href="{% url 'account:update' pk=user.pk %}">
-                change info
+            {% if target_user.profile %}
+
+                <h2 style="font-family: 'MaruBuri-Light'">
+                    {{ target_user.profile.nickname }}
+                </h2>
+                {% else %}
+                <a href="{% url 'profileapp:create' %}">
+                    create profile
                 </a>
+
             {% endif %}
 
             {% if target_user == user %}
+
+                <a href="{% url 'account:update' pk=user.pk %}">
+                    change info
+                </a>
+
+            {% endif %}
+
+            {% if target_user == user %}
+
                 <a href="{% url 'account:delete' pk=user.pk %}">
                     quit
                 </a>
+
             {% endif %}
         </div>
     </div>
